@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="forgotten">
+        
+        <div class="container forgotten__container">
+            <h1>Parolni yangilash</h1>
+            <form class="regForm" id="forgottenForm">
+                <div>
+                    <p class="regtext">username</p>
+                    <input type="text" class="reginput" placeholder="username" id="username">
+                </div>
+                <div>
+                    <p class="regtext">password</p>
+                    <input type="password" class="reginput" placeholder="password" id="password">
+                </div>
+                <button class="regbtn" type="submit">Parolni almashtirish</button>
+            </form>
+        </div>
+        </div>
+
+    <script>
+         const forgottenForm = document.querySelector("#forgottenForm")  
+         const username = document.querySelector("#username")
+        const password = document.querySelector("#password")
+        const body = document.querySelector("body")
+
+        forgottenForm.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            if(localStorage.getItem("munisa") === username.value && password.value > 0){
+            localStorage.removeItem("qoziboyeva");
+            localStorage.setItem("qoziboyeva", password.value)
+                window.location.href = "login.html"
+                alert("siz parolni almashtirdingiz")
+            }
+            else{
+                body.style.backgroundColor = "red"
+            }
+        })
+    </script>
+</body>
+</html>

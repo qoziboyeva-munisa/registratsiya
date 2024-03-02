@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="./css/normalaize.css">
+    <title>registratsiya</title>
+</head>
+<body>
+    <div class="registr">
+     <div class="container registr__container">
+        <h1>Registratsiya</h1>
+
+        <form class="regForm" id="regForm">
+            <div>
+                <p class="regtext">username</p>
+                <input type="text" class="reginput" placeholder="username" id="username">
+            </div>
+            <div>
+                <p class="regtext">password</p>
+                <input type="password" class="reginput" placeholder="password" id="password">
+            </div>
+            <button class="regbtn" type="submit">Registratsiyadan o'tish</button>
+        </form>
+     </div>
+    </div>
+
+
+    <script >
+      const regForm = document.querySelector("#regForm")  
+      const username = document.querySelector("#username")
+      const password = document.querySelector("#password")
+      const body = document.querySelector("body")
+
+      regForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        // console.log(username.value , password.value);
+
+        if(localStorage.getItem("munisa") !== username.value){
+        localStorage.setItem("munisa", username.value)
+        localStorage.setItem("qoziboyeva", password.value)
+        
+        body.style.backgroundColor = "green"
+        alert("tabriklaymiz siz reg dan o'tdingiz")
+        window.location.href = "login.html"
+        }
+        else{
+            body.style.backgroundColor = "red"
+            alert("bunday username bor")
+        }
+
+        // console.log(localStorage.getItem("munisa"));
+    
+    
+    })
+    </script>
+</body>
+</html>

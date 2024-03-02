@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="login">
+        <div class="container login__container">
+           <h1>Login</h1>
+            <form class="regForm" id="loginForm">
+
+                <div>
+                    <p class="regtext">username</p>
+                    <input type="text" class="reginput" placeholder="username" id="username">
+                </div>
+                <div>
+                    <p class="regtext">password</p>
+                    <input type="password" class="reginput" placeholder="password" id="password">
+                </div>
+                <button class="regbtn" type="submit">Logindan o'tish</button>
+            </form>
+            <a href="forgotten.html" class="login__link">Username yoki parolni unutdingizmi?</a>
+        </div>
+        </div>
+
+    <script>
+         const loginForm = document.querySelector("#loginForm")  
+         const username = document.querySelector("#username")
+        const password = document.querySelector("#password")
+        const body = document.querySelector("body")
+
+        loginForm.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            if(localStorage.getItem("munisa") === username.value
+            && localStorage.getItem("qoziboyeva") === password.value){
+            window.location.href = "index.html"
+            }
+            else{
+                body.style.backgroundColor = "red"
+            }
+        })
+    </script>
+</body>
+</html>
